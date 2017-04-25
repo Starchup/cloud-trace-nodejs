@@ -16,6 +16,8 @@
 
 'use strict';
 
+console.trace('require');
+
 var filesLoadedBeforeTrace = Object.keys(require.cache);
 
 // Load continuation-local-storage first to ensure the core async APIs get
@@ -75,6 +77,7 @@ var agent;
  * trace.start();
  */
 function start(projectConfig) {
+  console.trace('start');
   var config = initConfig(projectConfig);
 
   if (traceApi.isActive() && !config.forceNewAgent_) { // already started.
